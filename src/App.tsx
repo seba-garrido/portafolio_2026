@@ -43,44 +43,44 @@ const experiences: Experience[] = [
     role: "Data Engineer & Cloud",
     company: "Scotiabank",
     description:
-      "Desarrollo de workers para un proyecto de actualizacion de renta basado en OCR y LLM, normalizando datos, obteniendo cotizaciones y preparando informacion para integracion con Scotiaflow. Trabajo con Google Cloud Platform, Vertex AI, Cloud Run, Cloud SQL, Cloud Functions, MongoDB, Jenkins y Argo Workflows.",
+      "Desarrollo de workers para un proyecto de actualización de renta basado en OCR y LLM, encargados de normalizar datos, obtener cotizaciones y preparar la información para su integración con Scotiaflow. Habilitación, configuración y testeo de ambientes en Google Cloud Platform, incluyendo servicios como Vertex AI, Cloud Run, Cloud SQL y Cloud Functions. Creación y ejecución de pipelines de datos integrados con Jenkins y Argo Workflows, orientados a extraer información desde Bitbucket, transformarla y almacenarla en tablas de MongoDB.",
   },
   {
     period: "Ene. 2025 - Ago. 2025",
     role: "Desarrollador de Software",
     company: "INNVATTI Group",
     description:
-      "Desarrollo de un sistema WMS con foco en flujos de negocio, optimizacion de procedimientos almacenados en SQL Server, automatizacion de tareas administrativas con Python y mejora de consultas complejas para rendimiento del sistema.",
+      "Desarrollo de un sistema WMS con foco en flujos de negocio, optimización de procedimientos almacenados en SQL Server, automatización de tareas administrativas con Python y mejora de consultas complejas para rendimiento del sistema.",
   },
   {
     period: "Ene. 2025 - Jun. 2025",
     role: "Ingeniero de Software",
     company: "Geodev Spa.",
     description:
-      "Modelado de bases de datos relacionales para proyectos GIS, desarrollo de pipelines ETL geoespaciales, configuracion de jobs en Jenkins, formularios en ArcGIS conectados a bases de datos y automatizacion de procesos con Python y APIs.",
+      "Modelado de bases de datos relacionales para proyectos GIS, desarrollo de pipelines ETL geoespaciales, configuración de jobs en Jenkins, formularios en ArcGIS conectados a bases de datos y automatización de procesos con Python y APIs.",
   },
   {
     period: "Aug. 2022 - Mar. 2023",
     role: "Desarrollador de Software",
     company: "Geodev Spa.",
     description:
-      "Desarrollo de una aplicacion movil para monitoreo de maquinaria y personal, con programacion en Python, gestion de bases de datos MySQL y PostgreSQL, y trabajo colaborativo con equipos de UI/UX y aseguramiento de calidad.",
+      "Desarrollo de una aplicación móvil para monitoreo de maquinaria y personal, con programación en Python, gestión de bases de datos MySQL y PostgreSQL, y trabajo colaborativo con equipos de UI/UX y aseguramiento de calidad.",
   },
   {
     period: "Jan. 2021 - Mar. 2021",
-    role: "Practica Profesional I",
-    company: "Ingenieria y Construccion Sigdo Koppers S.A.",
+    role: "Práctica Profesional I",
+    company: "Ingeniería y Construcción Sigdo Koppers S.A.",
     description:
-      "Desarrollo de una aplicacion web para visualizar KPIs en televisores de la empresa e integracion de dashboards de PowerBI en un carrusel web.",
+      "Desarrollo de una aplicación web para visualizar KPIs en televisores de la empresa e integración de dashboards de PowerBI en un carrusel web.",
   },
 ];
 
 const projects: Project[] = [
   {
-    title: "Calendario movil forestal",
-    subtitle: "App movil para gestion operativa",
+    title: "Calendario móvil forestal",
+    subtitle: "App móvil para gestión operativa",
     description:
-      "Proyecto construido para apoyar la planificacion de actividades en terreno, con una interfaz enfocada en seguimiento por fechas y consulta rapida.",
+      "Proyecto construido para apoyar la planificación de actividades en terreno, con una interfaz enfocada en seguimiento por fechas y consulta rápida.",
     impact: ["Vista tipo calendario", "Capturas reales del flujo", "Demo funcional en video"],
     tech: ["QML", "SQLite", "Python", "HTML", "CSS"],
     images: ["/images/calendario2.png", "/images/calendario1.png", "/images/calendario3.jpg"],
@@ -88,18 +88,18 @@ const projects: Project[] = [
   },
   {
     title: "Carrusel de dashboards",
-    subtitle: "Visualizacion web para PowerBI",
+    subtitle: "Visualización web para PowerBI",
     description:
-      "Aplicacion web creada para exponer tableros de datos en formato carrusel, pensada para pantallas de monitoreo y lectura rapida.",
-    impact: ["Rotacion de informacion", "Diseno para pantallas", "Proyecto de practica profesional"],
+      "Aplicación web creada para exponer tableros de datos en formato carrusel, pensada para pantallas de monitoreo y lectura rápida.",
+    impact: ["Rotación de información", "Diseño para pantallas", "Proyecto de práctica profesional"],
     tech: ["JavaScript", "HTML", "CSS", "PowerBI"],
     images: ["/images/arauco1.png", "/images/arauco2.png", "/images/arauco3.png"],
   },
   {
     title: "Sistema WMS",
-    subtitle: "Gestion operativa para bodega",
+    subtitle: "Gestión operativa para bodega",
     description:
-      "Sistema Warehouse Management System desarrollado con foco en flujos de negocio, rendimiento de consultas y automatizacion de tareas administrativas para operaciones logisticas.",
+      "Sistema Warehouse Management System desarrollado con foco en flujos de negocio, rendimiento de consultas y automatización de tareas administrativas para operaciones logísticas.",
     impact: [
       "Flujos WMS para procesos de negocio",
       "Procedimientos almacenados en SQL Server",
@@ -114,13 +114,13 @@ const projects: Project[] = [
   },
   {
     title: "Pipeline ETL geoespacial",
-    subtitle: "Datos GIS, automatizacion y despliegue",
+    subtitle: "Datos GIS, automatización y despliegue",
     description:
-      "Pipeline de datos para ingesta, transformacion y validacion de informacion geoespacial, integrando bases relacionales, scripts Python, jobs en Jenkins y formularios ArcGIS.",
+      "Pipeline de datos para ingesta, transformación y validación de información geoespacial, integrando bases relacionales, scripts Python, jobs en Jenkins y formularios ArcGIS.",
     impact: [
-      "Ingesta y transformacion de datos geoespaciales",
+      "Ingesta y transformación de datos geoespaciales",
       "Jobs automatizados en Jenkins",
-      "Validacion de calidad por etapa",
+      "Validación de calidad por etapa",
     ],
     tech: ["Python", "ArcGIS", "ETL", "SQL Server", "Jenkins", "Bash"],
     images: [
@@ -130,16 +130,29 @@ const projects: Project[] = [
     ],
   },
   {
-    title: "Workers OCR y LLM",
-    subtitle: "Automatizacion cloud para procesamiento documental",
+    title: "Workers y pipelines cloud",
+    subtitle: "Scotiabank | GCP, OCR y datos",
     description:
-      "Workers para un proyecto de actualizacion de renta basado en OCR y modelos de lenguaje, orientados a normalizar datos, obtener cotizaciones y preparar informacion para integracion con Scotiaflow.",
+      "Workers para actualización de renta basada en OCR y LLM, junto con ambientes GCP y pipelines de datos integrados con Jenkins y Argo Workflows.",
     impact: [
-      "Normalizacion de datos desde documentos",
-      "Procesamiento con OCR y LLMs",
-      "Servicios cloud listos para integracion",
+      "Workers para procesamiento documental con OCR y LLMs",
+      "Habilitación, configuración y testeo de ambientes GCP",
+      "Extracción desde Bitbucket y carga en MongoDB",
     ],
-    tech: ["Python", "Google Cloud", "Vertex AI", "Cloud Run", "Cloud SQL", "MongoDB", "OCR", "LLMs"],
+    tech: [
+      "Python",
+      "Google Cloud",
+      "Vertex AI",
+      "Cloud Run",
+      "Cloud Functions",
+      "Cloud SQL",
+      "Jenkins",
+      "Argo Workflows",
+      "Bitbucket",
+      "MongoDB",
+      "OCR",
+      "LLMs",
+    ],
     images: [
       "https://images.unsplash.com/photo-1764231467852-b609a742e082?auto=format&fit=crop&w=1200&q=80",
       "https://images.unsplash.com/photo-1707157281599-d155d1da5b4c?auto=format&fit=crop&w=1200&q=80",
@@ -150,7 +163,7 @@ const projects: Project[] = [
     title: "Portafolio personal",
     subtitle: "Identidad profesional y proyectos",
     description:
-      "Evolucion del portafolio original hacia una experiencia mas moderna, responsive y orientada a mostrar trabajo real con mejor jerarquia visual.",
+      "Evolución del portafolio original hacia una experiencia más moderna, responsive y orientada a mostrar trabajo real con mejor jerarquía visual.",
     impact: ["Experiencia responsive", "Secciones claras", "Links profesionales"],
     tech: ["React", "TypeScript", "Vite", "CSS"],
     images: ["/images/react.svg", "/images/javascript.svg", "/images/css.svg"],
@@ -204,7 +217,7 @@ function App() {
         >
           SG
         </a>
-        <nav className="nav-links" aria-label="Navegacion principal">
+        <nav className="nav-links" aria-label="Navegación principal">
           {navItems.map((item) => (
             <a
               key={item.id}
@@ -224,12 +237,12 @@ function App() {
           <p className="eyebrow">Portafolio 2026</p>
           <h1>Sebastian Garrido</h1>
           <p className="role">
-            Ingeniero civil en informatica y telecomunicaciones, desarrollador
+            Ingeniero civil en informática y telecomunicaciones, desarrollador
             de software, data engineer y cloud.
           </p>
           <p className="intro">
-            Construyo soluciones web y moviles con foco en interfaces claras,
-            datos utiles y productos que se puedan mantener con criterio.
+            Construyo soluciones web y móviles con foco en interfaces claras,
+            datos útiles y productos que se puedan mantener con criterio.
           </p>
           <div className="hero-actions" aria-label="Links principales">
             {links.map((link) => (
@@ -249,10 +262,10 @@ function App() {
         <div className="hero-visual" aria-label="Vista previa del proyecto destacado">
           <div className="visual-header">
             <span>Proyecto destacado</span>
-            <strong>Calendario movil</strong>
+            <strong>Calendario móvil</strong>
           </div>
           <div className="device-grid">
-            <img src="/images/calendario2.png" alt="Captura de calendario movil" />
+            <img src="/images/calendario2.png" alt="Captura de calendario móvil" />
             <img src="/images/calendario1.png" alt="Captura de detalle calendario" />
             <img src="/images/calendario3.jpg" alt="Captura adicional del proyecto" />
           </div>
@@ -270,7 +283,7 @@ function App() {
         </div>
         <div>
           <strong>{skills.length}</strong>
-          <span>tecnologias visibles</span>
+          <span>tecnologías visibles</span>
         </div>
       </section>
 
@@ -308,7 +321,7 @@ function App() {
                     <li key={item}>{item}</li>
                   ))}
                 </ul>
-                <div className="tag-row" aria-label={`Tecnologias de ${project.title}`}>
+                <div className="tag-row" aria-label={`Tecnologías de ${project.title}`}>
                   {project.tech.map((tech) => (
                     <span key={tech}>{tech}</span>
                   ))}
@@ -337,7 +350,7 @@ function App() {
       <section id="skills" className="section skills-section">
         <div className="section-heading">
           <p className="eyebrow">Stack</p>
-          <h2>Tecnologias</h2>
+          <h2>Tecnologías</h2>
         </div>
         <div className="skills-grid">
           {skills.map((skill) => (
