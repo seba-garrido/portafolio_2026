@@ -1,0 +1,15 @@
+{
+  "name": "Sebastian Garrido Portfolio",
+  "short_name": "SG",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "theme_color": "#080807",
+  "background_color": "#080807",
+  "display": "standalone"
+}
