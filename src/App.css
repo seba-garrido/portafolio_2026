@@ -824,6 +824,7 @@
   border: 1px solid var(--line);
   border-radius: 8px;
   background: rgba(25, 25, 23, 0.78);
+  cursor: pointer;
   isolation: isolate;
   overflow: visible;
   transition:
@@ -831,6 +832,11 @@
     border-color 240ms ease,
     background 240ms ease,
     box-shadow 240ms ease;
+}
+
+.project-card:focus-visible {
+  outline: 3px solid var(--accent-soft);
+  outline-offset: 4px;
 }
 
 .project-card > * {
@@ -964,10 +970,39 @@
   flex-wrap: wrap;
   gap: 18px;
   margin-top: 22px;
+  align-items: center;
 }
 
 .project-actions .text-link {
   margin-top: 0;
+}
+
+.project-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 40px;
+  padding: 0 14px;
+  border: 1px solid rgba(255, 122, 26, 0.68);
+  border-radius: 8px;
+  color: #160b04;
+  background: var(--accent);
+  font-weight: 900;
+  cursor: pointer;
+  transition:
+    transform 180ms ease,
+    border-color 180ms ease,
+    background 180ms ease,
+    box-shadow 180ms ease;
+}
+
+.project-button:hover,
+.project-button:focus-visible {
+  transform: translateY(-2px);
+  border-color: var(--accent);
+  background: var(--accent-soft);
+  box-shadow: 0 12px 30px var(--accent-glow);
+  outline: none;
 }
 
 .project-media {
@@ -1038,63 +1073,12 @@
   transform: scale(1.18) rotate(-2deg);
 }
 
-.architecture-section,
 .monitor-section,
 .capabilities-section {
   padding: 92px 0;
   border-top: 1px solid var(--line);
 }
 
-.architecture-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 16px;
-  margin-top: 28px;
-}
-
-.architecture-card {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  gap: 22px;
-  min-height: 520px;
-  padding: 22px;
-  border: 1px solid var(--line);
-  border-radius: 8px;
-  background: rgba(25, 25, 23, 0.78);
-  overflow: hidden;
-  transition:
-    transform 240ms ease,
-    border-color 240ms ease,
-    background 240ms ease;
-}
-
-.architecture-card::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  background: linear-gradient(135deg, rgba(255, 122, 26, 0.1), transparent 46%);
-  opacity: 0;
-  transition: opacity 240ms ease;
-}
-
-.architecture-card:hover {
-  transform: translateY(-5px);
-  border-color: rgba(255, 122, 26, 0.48);
-  background: rgba(29, 28, 25, 0.9);
-}
-
-.architecture-card:hover::before {
-  opacity: 1;
-}
-
-.architecture-card-header {
-  position: relative;
-  z-index: 1;
-}
-
-.architecture-card-header span,
 .case-study-grid span {
   color: var(--accent-soft);
   font-size: 0.82rem;
@@ -1102,21 +1086,18 @@
   text-transform: uppercase;
 }
 
-.architecture-card h3,
 .ideas-panel h3 {
   margin: 8px 0 0;
   color: var(--text);
   font-size: 1.35rem;
 }
 
-.architecture-card p,
 .ideas-panel p,
 .case-study-content p {
   color: var(--muted);
   line-height: 1.68;
 }
 
-.architecture-flow,
 .case-flow {
   position: relative;
   z-index: 1;
@@ -1609,11 +1590,35 @@
   line-height: 1.06;
 }
 
+.case-study-block {
+  margin-top: 26px;
+  padding-top: 22px;
+  border-top: 1px solid var(--line);
+}
+
+.case-section-heading {
+  max-width: 680px;
+}
+
+.case-section-heading span {
+  color: var(--accent-soft);
+  font-size: 0.82rem;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.case-section-heading h3 {
+  margin: 6px 0 0;
+  color: var(--text);
+  font-size: 1.35rem;
+  line-height: 1.18;
+}
+
 .case-study-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 14px;
-  margin-top: 24px;
+  margin-top: 16px;
 }
 
 .case-study-grid section {
@@ -1626,7 +1631,13 @@
 
 .case-flow {
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  margin-top: 18px;
+  margin-top: 16px;
+}
+
+.case-tech-layout {
+  display: grid;
+  gap: 12px;
+  margin-top: 16px;
 }
 
 .case-flow .flow-node:not(:last-child)::after {
@@ -1684,19 +1695,11 @@
     grid-template-columns: 1fr;
   }
 
-  .architecture-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .capabilities-grid {
+  .monitor-stats {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  .architecture-card {
-    min-height: auto;
-  }
-
-  .monitor-stats {
+  .capabilities-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
@@ -1823,7 +1826,6 @@
 
   .split-section,
   .skills-section,
-  .architecture-section,
   .monitor-section,
   .capabilities-section {
     gap: 26px;

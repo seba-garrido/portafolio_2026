@@ -50,7 +50,6 @@ const links = [
 const navItems = [
   { id: "experiencia", label: "Experiencia" },
   { id: "proyectos", label: "Proyectos" },
-  { id: "arquitectura", label: "Arquitectura" },
   { id: "monitor", label: "Monitor" },
   { id: "capacidades", label: "Capacidades" },
   { id: "skills", label: "Stack" },
@@ -316,30 +315,6 @@ const skills: Skill[] = [
   { name: "SQLite", image: "/images/sqlite.svg" },
 ];
 
-const architectureCards = [
-  {
-    title: "Pipeline documental cloud",
-    label: "Scotiabank",
-    description:
-      "Vista conceptual del flujo de extracción, transformación y persistencia de datos para integraciones internas.",
-    nodes: ["Bitbucket", "Jenkins", "Argo", "Workers GCP", "MongoDB", "Scotiaflow"],
-  },
-  {
-    title: "ETL geoespacial",
-    label: "GIS",
-    description:
-      "Estructura base para ingesta, validación y disponibilidad de información geoespacial en proyectos de datos.",
-    nodes: ["ArcGIS", "Python", "Jenkins", "SQL", "Validación", "Consumo"],
-  },
-  {
-    title: "WMS operativo",
-    label: "Producto",
-    description:
-      "Mapa de componentes para un flujo de bodega con lógica de negocio, automatización y reportabilidad.",
-    nodes: ["Operación", "API", "SQL Server", "Jobs Python", "KPIs", "Usuarios"],
-  },
-];
-
 const monitorStats = [
   { label: "Pipelines modelados", value: "08", detail: "placeholder" },
   { label: "Workers documentados", value: "12", detail: "placeholder" },
@@ -585,7 +560,20 @@ function App() {
         </div>
         <div className="projects-list">
           {filteredProjects.map((project) => (
-            <article className="project-card" key={project.title}>
+            <article
+              className="project-card"
+              key={project.title}
+              role="button"
+              tabIndex={0}
+              aria-label={`Ver proyecto ${project.title}`}
+              onClick={() => setSelectedProject(project)}
+              onKeyDown={(event) => {
+                if (event.key === "Enter" || event.key === " ") {
+                  event.preventDefault();
+                  setSelectedProject(project);
+                }
+              }}
+            >
               <div className="project-copy">
                 <p className="project-subtitle">{project.subtitle}</p>
                 <h3>{project.title}</h3>
@@ -602,14 +590,23 @@ function App() {
                 </div>
                 <div className="project-actions">
                   <button
-                    className="text-link detail-button"
+                    className="project-button"
                     type="button"
-                    onClick={() => setSelectedProject(project)}
+                    onClick={(event) => {
+                      event.stopPropagation();
+                      setSelectedProject(project);
+                    }}
                   >
-                    Ver caso
+                    Ver proyecto
                   </button>
                   {project.video ? (
-                    <a className="text-link" href={project.video} target="_blank" rel="noreferrer">
+                    <a
+                      className="text-link"
+                      href={project.video}
+                      target="_blank"
+                      rel="noreferrer"
+                      onClick={(event) => event.stopPropagation()}
+                    >
                       Ver demo
                     </a>
                   ) : null}
@@ -632,37 +629,17 @@ function App() {
                       role="button"
                       tabIndex={0}
                       aria-label={`Ver imagen de ${project.title} en grande`}
-                      onClick={() => openLightbox(lightboxImage)}
-                      onKeyDown={(event) => handleImageKeyDown(event, lightboxImage)}
+                      onClick={(event) => {
+                        event.stopPropagation();
+                        openLightbox(lightboxImage);
+                      }}
+                      onKeyDown={(event) => {
+                        event.stopPropagation();
+                        handleImageKeyDown(event, lightboxImage);
+                      }}
                     />
                   );
                 })}
-              </div>
-            </article>
-          ))}
-        </div>
-      </section>
-
-      <section id="arquitectura" className="section architecture-section">
-        <div className="section-heading wide-heading">
-          <p className="eyebrow">Arquitectura</p>
-          <h2>Mapas técnicos para contar mejor cada solución.</h2>
-        </div>
-        <div className="architecture-grid">
-          {architectureCards.map((card) => (
-            <article className="architecture-card" key={card.title}>
-              <div className="architecture-card-header">
-                <span>{card.label}</span>
-                <h3>{card.title}</h3>
-                <p>{card.description}</p>
-              </div>
-              <div className="architecture-flow" aria-label={`Flujo de ${card.title}`}>
-                {card.nodes.map((node, index) => (
-                  <div className="flow-node" key={node}>
-                    <span>{String(index + 1).padStart(2, "0")}</span>
-                    <strong>{node}</strong>
-                  </div>
-                ))}
               </div>
             </article>
           ))}
@@ -806,32 +783,62 @@ function App() {
               <h2>{selectedProject.title}</h2>
               <p>{selectedProject.description}</p>
             </div>
-            <div className="case-study-grid">
-              <section>
-                <span>Problema</span>
-                <p>{selectedProject.caseStudy.problem}</p>
-              </section>
-              <section>
-                <span>Enfoque</span>
-                <p>{selectedProject.caseStudy.approach}</p>
-              </section>
-              <section>
-                <span>Resultado</span>
-                <p>{selectedProject.caseStudy.result}</p>
-              </section>
-              <section>
-                <span>Siguiente</span>
-                <p>{selectedProject.caseStudy.nextSteps}</p>
-              </section>
-            </div>
-            <div className="case-flow">
-              {selectedProject.caseStudy.flow.map((step, index) => (
-                <div className="flow-node" key={step}>
-                  <span>{String(index + 1).padStart(2, "0")}</span>
-                  <strong>{step}</strong>
+            <section className="case-study-block">
+              <div className="case-section-heading">
+                <span>Resumen técnico</span>
+                <h3>Qué problema resuelve y cómo está pensado.</h3>
+              </div>
+              <div className="case-study-grid">
+                <section>
+                  <span>Problema</span>
+                  <p>{selectedProject.caseStudy.problem}</p>
+                </section>
+                <section>
+                  <span>Enfoque</span>
+                  <p>{selectedProject.caseStudy.approach}</p>
+                </section>
+                <section>
+                  <span>Resultado</span>
+                  <p>{selectedProject.caseStudy.result}</p>
+                </section>
+                <section>
+                  <span>Siguiente</span>
+                  <p>{selectedProject.caseStudy.nextSteps}</p>
+                </section>
+              </div>
+            </section>
+            <section className="case-study-block">
+              <div className="case-section-heading">
+                <span>Arquitectura</span>
+                <h3>Flujo conceptual del proyecto.</h3>
+              </div>
+              <div className="case-flow">
+                {selectedProject.caseStudy.flow.map((step, index) => (
+                  <div className="flow-node" key={step}>
+                    <span>{String(index + 1).padStart(2, "0")}</span>
+                    <strong>{step}</strong>
+                  </div>
+                ))}
+              </div>
+            </section>
+            <section className="case-study-block">
+              <div className="case-section-heading">
+                <span>Tecnologías</span>
+                <h3>Stack y foco del trabajo.</h3>
+              </div>
+              <div className="case-tech-layout">
+                <div className="tag-row" aria-label={`Tecnologías de ${selectedProject.title}`}>
+                  {selectedProject.tech.map((tech) => (
+                    <span key={tech}>{tech}</span>
+                  ))}
                 </div>
-              ))}
-            </div>
+                <div className="mini-tag-row" aria-label={`Categorías de ${selectedProject.title}`}>
+                  {selectedProject.categories.map((category) => (
+                    <span key={category}>{category}</span>
+                  ))}
+                </div>
+              </div>
+            </section>
           </article>
         </div>
       ) : null}
