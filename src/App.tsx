@@ -507,7 +507,7 @@ function App() {
       <section className="snapshot section" aria-label="Resumen profesional">
         <div>
           <strong>{experiences.length}</strong>
-          <span>experiencias reales</span>
+          <span>experiencias laborales</span>
         </div>
         <div>
           <strong>{projects.length}</strong>

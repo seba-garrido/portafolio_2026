@@ -417,14 +417,15 @@
 }
 
 .button-primary {
-  border-color: rgba(255, 122, 26, 0.75);
-  color: #120a05;
-  background: var(--accent);
+  border-color: rgba(255, 179, 107, 0.32);
+  color: var(--accent-soft);
+  background: rgba(255, 122, 26, 0.08);
 }
 
 .button-primary:hover {
-  border-color: var(--accent);
-  background: var(--accent-soft);
+  border-color: rgba(255, 179, 107, 0.58);
+  color: var(--text);
+  background: rgba(255, 122, 26, 0.14);
 }
 
 .hero-visual {
@@ -950,19 +951,31 @@
 
 .text-link {
   display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 40px;
   margin-top: 22px;
-  border: 0;
-  padding: 0;
-  color: var(--accent);
-  background: transparent;
+  padding: 0 14px;
+  border: 1px solid rgba(255, 179, 107, 0.22);
+  border-radius: 8px;
+  color: var(--accent-soft);
+  background: rgba(255, 122, 26, 0.06);
   font: inherit;
   font-weight: 800;
   text-decoration: none;
   cursor: pointer;
+  transition:
+    transform 180ms ease,
+    color 180ms ease,
+    border-color 180ms ease,
+    background 180ms ease;
 }
 
 .text-link:hover {
-  color: var(--accent-soft);
+  transform: translateY(-2px);
+  border-color: rgba(255, 179, 107, 0.48);
+  color: var(--text);
+  background: rgba(255, 122, 26, 0.12);
 }
 
 .project-actions {
@@ -982,15 +995,16 @@
   align-items: center;
   justify-content: center;
   min-height: 40px;
-  padding: 0 14px;
-  border: 1px solid rgba(255, 122, 26, 0.68);
+  padding: 0 16px;
+  border: 1px solid rgba(255, 179, 107, 0.28);
   border-radius: 8px;
-  color: #160b04;
-  background: var(--accent);
-  font-weight: 900;
+  color: var(--accent-soft);
+  background: rgba(255, 122, 26, 0.08);
+  font-weight: 800;
   cursor: pointer;
   transition:
     transform 180ms ease,
+    color 180ms ease,
     border-color 180ms ease,
     background 180ms ease,
     box-shadow 180ms ease;
@@ -999,9 +1013,10 @@
 .project-button:hover,
 .project-button:focus-visible {
   transform: translateY(-2px);
-  border-color: var(--accent);
-  background: var(--accent-soft);
-  box-shadow: 0 12px 30px var(--accent-glow);
+  border-color: rgba(255, 179, 107, 0.55);
+  color: var(--text);
+  background: rgba(255, 122, 26, 0.14);
+  box-shadow: 0 10px 24px rgba(255, 122, 26, 0.1);
   outline: none;
 }
 
